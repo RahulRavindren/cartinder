@@ -15,6 +15,10 @@ class Utils {
             private get() = field
             set(value) {field = value}
 
+        var logLevel:LogLevel? = null
+            private set
+            get() = field
+
         fun getApplicationContext(): Context {
             return application!!.applicationContext
         }
@@ -26,6 +30,10 @@ class Utils {
 
         fun getStringFromResource(resId: Int, vararg params:String):String {
             return getApplicationContext().getString(resId, params)
+        }
+
+        fun setBuildConfig(buildConfig: BuildConfig) {
+            logLevel = LogLevel(buildConfig)
         }
 
 
