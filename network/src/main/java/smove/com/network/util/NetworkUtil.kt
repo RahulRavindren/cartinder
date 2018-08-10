@@ -26,7 +26,8 @@ class NetworkUtil {
 
         fun networkLogger(): HttpLoggingInterceptor {
             val logging:HttpLoggingInterceptor = HttpLoggingInterceptor();
-            logging.level =
+            logging.level = HttpLoggingInterceptor.Level.valueOf(Utils.logLevel!!.getNetworkDebugLevel())
+            return logging
         }
     }
 }
